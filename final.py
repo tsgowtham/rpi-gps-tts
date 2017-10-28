@@ -52,7 +52,7 @@ def addr():
 	global gpsd
 	global address_string
 	global last_coordinates
-	gcp_key = '' 
+	gcp_key = '' #Add your Google Maps API key here
 	if((not math.isnan(gpsd.fix.latitude)) and (not(gpsd.fix.latitude == 0.0 and gpsd.fix.longitude == 0.0)) ):
 		url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + str(gpsd.fix.latitude) + ',' + str(gpsd.fix.longitude) + '&key=' + gcp_key
 	else:
@@ -81,7 +81,7 @@ def notif():
 	global address_string
         loc = address_string
         headers = {"Accept":"application/json","Content-Type":"application/json","User-Agent":"pi"}
-        pushbullet_key = ""   
+        pushbullet_key = ""   #Add Pushbullet API key here
         url = "https://api.pushbullet.com/v2"
         message = {"body":loc,"title":"Current Location Is","type":"note"}
         msg_json = json.dumps(message)
